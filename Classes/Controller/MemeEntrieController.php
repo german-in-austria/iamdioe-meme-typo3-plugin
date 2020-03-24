@@ -132,5 +132,16 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         }
         $this->view->assign('memeimagesItems', $memeimagesItems);
     }
+    /**
+     * action memelist
+     *
+     * @param HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie
+     * @return void
+     */
+    public function memelistAction()
+    {
+        $memeEntries = $this->memeEntrieRepository->findAll();
+        $this->view->assign('memeEntries', $memeEntries);
+    }
 
 }

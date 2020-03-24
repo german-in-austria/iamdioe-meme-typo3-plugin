@@ -21,11 +21,11 @@ call_user_func(
             'HcbIamDioeMeme.HcbIamdioeMeme',
             'Fememelist',
             [
-                'MemeEntrie' => 'list, show, new, create, edit, update, delete'
+                'MemeEntrie' => 'memelist, list, show, new, create, edit, update, delete'
             ],
             // non-cacheable actions
             [
-                'MemeEntrie' => 'create, update, delete'
+                'MemeEntrie' => 'memelist, create, update, delete'
             ]
         );
 
