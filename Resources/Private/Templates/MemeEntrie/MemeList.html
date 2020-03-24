@@ -1,0 +1,67 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+    <h1>MemeList</h1>
+		<h2>Listing for MemeEntrie</h2>
+
+		<f:flashMessages />
+
+		<table  class="tx_hcbiamdioememe" >
+			<tr>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.datum" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.votes" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.bild" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.memetag" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.memetexte" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.freigegeben" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.email" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.alterjahre" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.geburtsort" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.wohnort" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.geschlecht" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.dialekt" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.dialektalltag" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.dialektbezeichnung" /></th>
+				<th><f:translate key="tx_hcbiamdioememe_domain_model_memeentrie.teilnahme" /></th>
+				<th> </th>
+				<th> </th>
+			</tr>
+
+			<f:for each="{memeEntries}" as="memeEntrie">
+				<tr>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.datum -> f:format.date()}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.votes}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.bild.originalResource.name}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.memetag}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.memetexte}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.freigegeben}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.email}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.alterjahre}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.geburtsort}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.wohnort}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.geschlecht}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.dialekt}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.dialektalltag}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.dialektbezeichnung}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{memeEntrie : memeEntrie}"> {memeEntrie.teilnahme}</f:link.action></td>
+					<td><f:link.action action="edit" arguments="{memeEntrie : memeEntrie}">Edit</f:link.action></td>
+					<td><f:link.action action="delete" arguments="{memeEntrie : memeEntrie}">Delete</f:link.action></td>
+				</tr>
+			</f:for>
+		</table>
+
+		<f:link.action action="new">New MemeEntrie</f:link.action>
+	</f:section>
+</html>

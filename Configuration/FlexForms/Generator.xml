@@ -1,0 +1,18 @@
+<T3DataStructure>
+  <sheets>
+    <sDEF>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>LLL:EXT:trainings/Resources/Private/Language/locallang_db.xlf:flexform.pluginConfiguration</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <settings.xxx>
+            <TCEforms>
+            </TCEforms>
+          </settings.xxx>
+        </el>
+      </ROOT>
+    </sDEF>
+  </sheets>
+</T3DataStructure>
