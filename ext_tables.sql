@@ -8,10 +8,10 @@ CREATE TABLE tx_hcbiamdioememe_domain_model_memeentrie (
 
 	datum datetime DEFAULT NULL,
 	votes int(11) DEFAULT '0' NOT NULL,
+	freigegeben smallint(5) unsigned DEFAULT '0' NOT NULL,
 	bild int(11) unsigned NOT NULL default '0',
 	memetag varchar(255) DEFAULT '' NOT NULL,
 	memetexte varchar(255) DEFAULT '' NOT NULL,
-	freigegeben smallint(5) unsigned DEFAULT '0' NOT NULL,
 	email varchar(255) DEFAULT '' NOT NULL,
 	alterjahre int(11) DEFAULT '0' NOT NULL,
 	geburtsort varchar(255) DEFAULT '' NOT NULL,

@@ -12,6 +12,9 @@
 			<trans-unit id="tx_hcbiamdioememe_domain_model_memeentrie.votes">
 				<source>Votes</source>
 			</trans-unit>
+			<trans-unit id="tx_hcbiamdioememe_domain_model_memeentrie.freigegeben">
+				<source>Freigegeben</source>
+			</trans-unit>
 			<trans-unit id="tx_hcbiamdioememe_domain_model_memeentrie.bild">
 				<source>Bild</source>
 			</trans-unit>
@@ -20,9 +23,6 @@
 			</trans-unit>
 			<trans-unit id="tx_hcbiamdioememe_domain_model_memeentrie.memetexte">
 				<source>Memetexte</source>
-			</trans-unit>
-			<trans-unit id="tx_hcbiamdioememe_domain_model_memeentrie.freigegeben">
-				<source>Freigegeben</source>
 			</trans-unit>
 			<trans-unit id="tx_hcbiamdioememe_domain_model_memeentrie.email">
 				<source>Email</source>

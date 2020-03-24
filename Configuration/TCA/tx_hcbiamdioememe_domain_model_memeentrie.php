@@ -2,7 +2,9 @@
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:hcb_iamdioe_meme/Resources/Private/Language/locallang_db.xlf:tx_hcbiamdioememe_domain_model_memeentrie',
-        'label' => 'datum',
+        'label' => 'memetexte',
+        'label_alt' => 'datum,votes,freigegeben,bild,memetag,memetexte,email,alterjahre,geburtsort,wohnort,geschlecht,dialekt,dialektalltag,dialektbezeichnung,teilnahme',
+        'label_alt_force' => true,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -16,14 +18,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'datum,votes,bild,memetag,memetexte,freigegeben,email,alterjahre,geburtsort,wohnort,geschlecht,dialekt,dialektalltag,dialektbezeichnung,teilnahme',
+        'searchFields' => 'datum,votes,freigegeben,bild,memetag,memetexte,email,alterjahre,geburtsort,wohnort,geschlecht,dialekt,dialektalltag,dialektbezeichnung,teilnahme',
         'iconfile' => 'EXT:hcb_iamdioe_meme/Resources/Public/Icons/tx_hcbiamdioememe_domain_model_memeentrie.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, datum, votes, bild, memetag, memetexte, freigegeben, email, alterjahre, geburtsort, wohnort, geschlecht, dialekt, dialektalltag, dialektbezeichnung, teilnahme',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, datum, votes, freigegeben, bild, memetag, memetexte, email, alterjahre, geburtsort, wohnort, geschlecht, dialekt, dialektalltag, dialektbezeichnung, teilnahme',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, datum, votes, bild, memetag, memetexte, freigegeben, email, alterjahre, geburtsort, wohnort, geschlecht, dialekt, dialektalltag, dialektbezeichnung, teilnahme, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, datum, votes, freigegeben, bild, memetag, memetexte, email, alterjahre, geburtsort, wohnort, geschlecht, dialekt, dialektalltag, dialektbezeichnung, teilnahme, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -128,6 +130,20 @@ return [
                 'eval' => 'int'
             ]
         ],
+        'freigegeben' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:hcb_iamdioe_meme/Resources/Private/Language/locallang_db.xlf:tx_hcbiamdioememe_domain_model_memeentrie.freigegeben',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
+            ]
+            
+        ],
         'bild' => [
             'exclude' => false,
             'label' => 'LLL:EXT:hcb_iamdioe_meme/Resources/Private/Language/locallang_db.xlf:tx_hcbiamdioememe_domain_model_memeentrie.bild',
@@ -191,20 +207,6 @@ return [
                 'size' => 30,
                 'eval' => 'trim'
             ],
-        ],
-        'freigegeben' => [
-            'exclude' => false,
-            'label' => 'LLL:EXT:hcb_iamdioe_meme/Resources/Private/Language/locallang_db.xlf:tx_hcbiamdioememe_domain_model_memeentrie.freigegeben',
-            'config' => [
-                'type' => 'check',
-                'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
-                    ]
-                ],
-                'default' => 0,
-            ]
-            
         ],
         'email' => [
             'exclude' => true,

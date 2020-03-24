@@ -9,6 +9,9 @@
 			<trans-unit id="votes.description">
 				<source>votes</source>
 			</trans-unit>
+			<trans-unit id="freigegeben.description">
+				<source>freigegeben</source>
+			</trans-unit>
 			<trans-unit id="bild.description">
 				<source>bild</source>
 			</trans-unit>
@@ -17,9 +20,6 @@
 			</trans-unit>
 			<trans-unit id="memetexte.description">
 				<source>memetexte</source>
-			</trans-unit>
-			<trans-unit id="freigegeben.description">
-				<source>freigegeben</source>
 			</trans-unit>
 			<trans-unit id="email.description">
 				<source>email</source>

@@ -23,4 +23,16 @@ class MemeEntrieRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     protected $defaultOrderings = [
         'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
     ];
+
+    /**
+     * Freigegebene Einträge
+     * 
+     * @return Tx_Extbase_Persistence_QueryResultInterface
+     */
+    public function getAllPublic(){
+        $query = $this->createQuery();
+        $query->matching($query->equals('freigegeben', 1));
+        return $query->execute();
+    }
+
 }

@@ -140,7 +140,7 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
      */
     public function memelistAction()
     {
-        $memeEntries = $this->memeEntrieRepository->findAll();
+        $memeEntries = $this->memeEntrieRepository->getAllPublic();
         $this->view->assign('memeEntries', $memeEntries);
     }
 
