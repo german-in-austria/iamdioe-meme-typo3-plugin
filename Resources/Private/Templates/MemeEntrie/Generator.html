@@ -2,8 +2,15 @@
 	<f:layout name="Default" />
 
 	<f:section name="content">
-		<h1>MemeGenerator</h1>
-		<f:debug title="debug">{_all}</f:debug>
-		settings.test: {settings.test}<br>
+		<div class="panel panel-default">
+			<div class="panel-heading">MemeGenerator</div>
+			<div class="panel-body">
+				<div class="row">
+					<f:for each="{memeimagesItems}" as="memeimageItem">
+						<div class="col-md-3"><f:image src="{memeimageItem.uid}" class="img-responsive" treatIdAsReference="TRUE" /></div>
+					</f:for>
+				</div>
+			</div>
+		</div>
 	</f:section>
 </html>

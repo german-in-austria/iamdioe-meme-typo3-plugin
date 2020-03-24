@@ -117,8 +117,20 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
      */
     public function generatorAction()
     {
-        $memeEntries = $this->memeEntrieRepository->findAll();
-        $this->view->assign('memeEntries', $memeEntries);
+        $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\ResourceFactory');
+        $memeimagesItems = array();
+        $memeimagesItemUids = $this->settings['memeimages'];
+        if(!empty($memeimagesItemUids)){
+            $memeimagesItemUids = explode(',', $memeimagesItemUids);
+            $arraySize = sizeof($memeimagesItemUids);
+            for($i = 0; $i < $arraySize; $i++){
+                $itemUid = $memeimagesItemUids[$i];
+                $fileReference = $resourceFactory->getFileReferenceObject($itemUid);
+                $fileArray = $fileReference->getProperties();
+                array_push($memeimagesItems, $fileArray);
+            }
+        }
+        $this->view->assign('memeimagesItems', $memeimagesItems);
     }
 
 }
