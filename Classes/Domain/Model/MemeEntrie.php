@@ -215,7 +215,7 @@ class MemeEntrie extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getMemetag()
     {
-        return $this->memetag;
+        return str_replace("#", "", $this->memetag);
     }
 
     /**
