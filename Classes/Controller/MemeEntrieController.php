@@ -108,4 +108,17 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         $this->memeEntrieRepository->remove($memeEntrie);
         $this->redirect('list');
     }
+
+    /**
+     * action generator
+     *
+     * @param HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie
+     * @return void
+     */
+    public function generatorAction()
+    {
+        $memeEntries = $this->memeEntrieRepository->findAll();
+        $this->view->assign('memeEntries', $memeEntries);
+    }
+
 }
