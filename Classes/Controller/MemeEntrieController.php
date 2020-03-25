@@ -130,18 +130,29 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
                 array_push($memeimagesItems, $fileArray);
             }
         }
+        $this->view->assign('pid', $this->configurationManager->getContentObject()->data['pages']);
         $this->view->assign('memeimagesItems', $memeimagesItems);
     }
 
     /**
      * action generatorAjax
      *
-     * @param HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie
+     * @param \HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie $newMemeEntrie
      * @return void
      */
-    public function generatorAjaxAction()
+    public function generatorAjaxAction(\HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie $newMemeEntrie)
     {
-        $this->view->assign('test', $this->request->getArguments());
+        $newMemeEntrie->setDatum(new \DateTime());
+        $newMemeEntrie->setVotes(0);
+        $newMemeEntrie->setFreigegeben(0);
+        if ($newMemeEntrie->getDialekt() != 1) {
+            $newMemeEntrie->setDialekt(0);
+        }
+        // ToDo: Bild hochladen und setzen ...
+        $this->memeEntrieRepository->add($newMemeEntrie);
+        $this->view->assign('newMemeEntrie', $newMemeEntrie);
+        $this->view->assign('test', print_r($memeimagesItemUids, true));
+        $this->view->assign('test2', print_r(null, true));
     }
 
     /**

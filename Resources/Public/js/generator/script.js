@@ -46,7 +46,7 @@ $(document).ready(function(){
           // console.log('valid')
           var imageDataUrl = $("#meme").memeGenerator("save")
           // $("#meme").memeGenerator("download", "image.png");
-          console.log($('form.personal').serialize());
+          // console.log($('form.personal').serialize());
           $.ajax({
             url: $('form.memeform').attr('action'),
             type: "POST",
