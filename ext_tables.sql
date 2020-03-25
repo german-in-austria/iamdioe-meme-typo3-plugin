@@ -17,7 +17,7 @@ CREATE TABLE tx_hcbiamdioememe_domain_model_memeentrie (
 	geburtsort varchar(255) DEFAULT '' NOT NULL,
 	wohnort varchar(255) DEFAULT '' NOT NULL,
 	geschlecht varchar(255) DEFAULT '' NOT NULL,
-	dialekt varchar(255) DEFAULT '' NOT NULL,
+	dialekt smallint(5) unsigned DEFAULT '0' NOT NULL,
 	dialektalltag varchar(255) DEFAULT '' NOT NULL,
 	dialektbezeichnung varchar(255) DEFAULT '' NOT NULL,
 	teilnahme smallint(5) unsigned DEFAULT '0' NOT NULL,

@@ -100,7 +100,7 @@ class MemeEntrie extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var string
      */
-    protected $dialekt = '';
+    protected $dialekt = false;
 
     /**
      * dialektalltag

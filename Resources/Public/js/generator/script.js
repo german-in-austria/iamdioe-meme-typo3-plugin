@@ -50,14 +50,7 @@ $(document).ready(function(){
           $.ajax({
             url: $('form.memeform').attr('action'),
             type: "POST",
-            contentType: 'application/json; charset=utf-8',
             data: $('form.personal').serialize(),
-            // data: JSON.stringify({
-            //   image: imageDataUrl,
-            //   personal: getFormValues(),
-            //   action: 'generatorAjax'
-            // }),
-            // dataType: "json",
             success: function(response){
               console.log(response);
             },

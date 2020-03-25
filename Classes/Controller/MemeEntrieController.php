@@ -141,7 +141,7 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
      */
     public function generatorAjaxAction()
     {
-        $this->view->assign('test', 'test');
+        $this->view->assign('test', $this->request->getArguments());
     }
 
     /**

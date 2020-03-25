@@ -163,7 +163,7 @@
                             "propertyIsL10nModeExclude": false,
                             "propertyIsRequired": false,
                             "propertyName": "dialekt",
-                            "propertyType": "String",
+                            "propertyType": "Boolean",
                             "uid": "1347741977172"
                         },
                         {

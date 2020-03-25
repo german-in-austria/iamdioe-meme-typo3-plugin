@@ -305,7 +305,7 @@ class MemeEntrieTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     public function getDialektReturnsInitialValueForString()
     {
         self::assertSame(
-            '',
+            false,
             $this->subject->getDialekt()
         );
     }
@@ -315,10 +315,10 @@ class MemeEntrieTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function setDialektForStringSetsDialekt()
     {
-        $this->subject->setDialekt('Conceived at T3CON10');
+        $this->subject->setDialekt(true);
 
         self::assertAttributeEquals(
-            'Conceived at T3CON10',
+            true,
             'dialekt',
             $this->subject
         );

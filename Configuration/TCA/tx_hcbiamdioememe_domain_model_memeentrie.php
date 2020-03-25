@@ -257,9 +257,13 @@ return [
             'exclude' => false,
             'label' => 'LLL:EXT:hcb_iamdioe_meme/Resources/Private/Language/locallang_db.xlf:tx_hcbiamdioememe_domain_model_memeentrie.dialekt',
             'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
+                'type' => 'check',
+                'items' => [
+                    '1' => [
+                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                    ]
+                ],
+                'default' => 0,
             ],
         ],
         'dialektalltag' => [
