@@ -49,6 +49,16 @@ plugin.tx_hcbiamdioememe_fememelist {
     }
 }
 
-# these classes are only used in auto-generated templates
-plugin.tx_hcbiamdioememe._CSS_DEFAULT_STYLE (
-)
+ajaxsfememegenerator_page = PAGE
+ajaxsfememegenerator_page {
+    typeNum = 78376261
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders = Content-type:application/html
+        xhtml_cleaning = 0
+        debug = 0
+        no_cache = 1
+        admPanel = 0
+    }
+    10 < tt_content.list.20.hcbiamdioememe_fememegenerator
+}

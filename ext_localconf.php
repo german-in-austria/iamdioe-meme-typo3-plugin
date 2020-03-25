@@ -9,11 +9,11 @@ call_user_func(
             'HcbIamDioeMeme.HcbIamdioeMeme',
             'Fememegenerator',
             [
-                'MemeEntrie' => 'generator'
+                'MemeEntrie' => 'generator, generatorAjax'
             ],
             // non-cacheable actions
             [
-                'MemeEntrie' => 'generator'
+                'MemeEntrie' => 'generator, generatorAjax'
             ]
         );
 

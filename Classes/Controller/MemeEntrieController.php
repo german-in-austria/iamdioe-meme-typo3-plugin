@@ -132,6 +132,18 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         }
         $this->view->assign('memeimagesItems', $memeimagesItems);
     }
+
+    /**
+     * action generatorAjax
+     *
+     * @param HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie
+     * @return void
+     */
+    public function generatorAjaxAction()
+    {
+        $this->view->assign('test', 'test');
+    }
+
     /**
      * action memelist
      *

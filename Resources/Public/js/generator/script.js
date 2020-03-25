@@ -15,6 +15,7 @@ $.fn.memeGenerator("i18n", "de", {
 })
 
 $(document).ready(function(){
+  $('form.memeform').attr('novalidate','');
   $("#meme").memeGenerator({
     // useBootstrap: true,
     layout: 'horizontal',
@@ -39,27 +40,33 @@ $(document).ready(function(){
         e.stopPropagation()
         var form = document.querySelector('form.personal')
 
-        if (form.checkValidity() === false) {
-          console.log('invalid')
-        } else {
-          console.log('valid')
+        // if (form.checkValidity() === false) {
+        //   console.log('invalid')
+        // } else {
+          // console.log('valid')
           var imageDataUrl = $("#meme").memeGenerator("save")
-          $("#meme").memeGenerator("download", "image.png");
+          // $("#meme").memeGenerator("download", "image.png");
+          console.log($('form.personal').serialize());
           $.ajax({
-            url: "/sendmail",
+            url: $('form.memeform').attr('action'),
             type: "POST",
             contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify({
-              image: imageDataUrl,
-              personal: getFormValues()
-            }),
-            dataType: "json",
+            data: $('form.personal').serialize(),
+            // data: JSON.stringify({
+            //   image: imageDataUrl,
+            //   personal: getFormValues(),
+            //   action: 'generatorAjax'
+            // }),
+            // dataType: "json",
             success: function(response){
-              
+              console.log(response);
+            },
+            error: function (jqXHR, textStatus, errorThrow) {
+              console.log('Ajax request - ' + textStatus + ': ' + errorThrow);
             }
           })
-        }
-        form.classList.add('was-validated')
+        // }
+        // form.classList.add('was-validated')
       })
     }
   })
