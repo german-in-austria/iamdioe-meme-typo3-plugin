@@ -1,0 +1,50 @@
+.image-container{
+  padding: 10px 0;
+  background: #f4f4f4;
+}
+h1.headline{
+  font-family: 'Monoton', cursive;
+  font-size: 4em;
+  color: orange;
+  text-align: center;
+}
+
+.center{
+  text-align: center
+}
+.images{
+  overflow-x: scroll;
+  white-space: nowrap;
+  height: 150px;
+  overflow-y: hidden;
+}
+.img-inner{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-position: center center;
+  background-size: cover;
+}
+.images img{
+  transition: transform .2s;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+  cursor: pointer;
+  opacity: 0;
+}
+#save{
+  background: cornflowerblue;
+  color: white;
+  margin: 0 auto;
+  width: 250px;
+  display: block;
+  font-size: 1.1em;
+  margin-top: 2em;
+}
+.mg-toolbox-toggle{
+  display: none !important;
+}
+.template{
+  display: none
+}
