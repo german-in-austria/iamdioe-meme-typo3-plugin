@@ -12,6 +12,10 @@
        url('../../fonts/monoton-v9-latin-regular.svg#Monoton') format('svg'); /* Legacy iOS */
 }
 
+.meme-generator {
+  margin: 25px 0;
+}
+
 .image-container{
   padding: 10px 0;
   background: #f4f4f4;

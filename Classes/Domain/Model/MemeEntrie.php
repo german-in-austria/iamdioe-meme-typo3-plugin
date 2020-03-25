@@ -70,9 +70,9 @@ class MemeEntrie extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * alterjahre
      *
-     * @var int
+     * @var string
      */
-    protected $alterjahre = 0;
+    protected $alterjahre = '';
 
     /**
      * geburtsort
@@ -305,7 +305,7 @@ class MemeEntrie extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the alterjahre
      *
-     * @return int alterjahre
+     * @return string alterjahre
      */
     public function getAlterjahre()
     {
@@ -315,7 +315,7 @@ class MemeEntrie extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the alterjahre
      *
-     * @param int $alterjahre
+     * @param string $alterjahre
      * @return void
      */
     public function setAlterjahre($alterjahre)

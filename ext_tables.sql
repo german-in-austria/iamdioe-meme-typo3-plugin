@@ -13,7 +13,7 @@ CREATE TABLE tx_hcbiamdioememe_domain_model_memeentrie (
 	memetag varchar(255) DEFAULT '' NOT NULL,
 	memetexte varchar(255) DEFAULT '' NOT NULL,
 	email varchar(255) DEFAULT '' NOT NULL,
-	alterjahre int(11) DEFAULT '0' NOT NULL,
+	alterjahre varchar(255) DEFAULT '' NOT NULL,
 	geburtsort varchar(255) DEFAULT '' NOT NULL,
 	wohnort varchar(255) DEFAULT '' NOT NULL,
 	geschlecht varchar(255) DEFAULT '' NOT NULL,

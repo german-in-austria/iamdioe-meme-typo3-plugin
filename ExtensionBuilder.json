@@ -119,7 +119,7 @@
                             "propertyIsL10nModeExclude": false,
                             "propertyIsRequired": false,
                             "propertyName": "alterjahre",
-                            "propertyType": "Integer",
+                            "propertyType": "String",
                             "uid": "1350272122431"
                         },
                         {

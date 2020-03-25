@@ -205,7 +205,7 @@ class MemeEntrieTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     public function getAlterjahreReturnsInitialValueForInt()
     {
         self::assertSame(
-            0,
+            '',
             $this->subject->getAlterjahre()
         );
     }
@@ -215,10 +215,10 @@ class MemeEntrieTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function setAlterjahreForIntSetsAlterjahre()
     {
-        $this->subject->setAlterjahre(12);
+        $this->subject->setAlterjahre('Conceived at T3CON10');
 
         self::assertAttributeEquals(
-            12,
+            'Conceived at T3CON10',
             'alterjahre',
             $this->subject
         );

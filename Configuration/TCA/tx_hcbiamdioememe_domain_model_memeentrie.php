@@ -222,8 +222,8 @@ return [
             'label' => 'LLL:EXT:hcb_iamdioe_meme/Resources/Private/Language/locallang_db.xlf:tx_hcbiamdioememe_domain_model_memeentrie.alterjahre',
             'config' => [
                 'type' => 'input',
-                'size' => 4,
-                'eval' => 'int'
+                'size' => 30,
+                'eval' => 'trim'
             ]
         ],
         'geburtsort' => [
