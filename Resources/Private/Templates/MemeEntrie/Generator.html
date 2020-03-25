@@ -31,7 +31,9 @@
 				<h5 class="center">3. Senden und Download</h5><br>
 				<f:form action="generatorAjax" enctype="multipart/form-data" pageType="78376261" name="newMemeEntrie" object="{newMemeEntrie}" class="memeform personal needs-validation">
 					<f:form.hidden name="action" value="generatorAjax"/>
-					<f:form.hidden property="pid" value="{pid}" name="action"/>
+					<f:form.hidden property="pid" value="{pid}" name="pid"/>
+					<f:form.hidden property="memetexte" name="memetexte" id="memetexte" value=""/>
+					<f:form.hidden name="image" value="" id="imagefield"/>
 					<div class="row">
 						<div class="col-12 col-md-6">
 							<div class="form-group mb-3">
@@ -43,7 +45,7 @@
 								</div>
 							</div>
 							<div class="form-group mb-3">
-								<label for="age">Alter</label>
+								<label for="alterjahre">Alter</label>
 								<f:form.select property="alterjahre" name="alterjahre" class="form-control" id="alterjahre">
 									<f:form.select.option value="ka">Bitte auswählen</f:form.select.option>
 									<f:form.select.option value="unter 15">unter 15</f:form.select.option>

@@ -44,7 +44,18 @@ $(document).ready(function(){
         //   console.log('invalid')
         // } else {
           // console.log('valid')
+          var texte = JSON.parse($("#meme").memeGenerator("serialize"));
+          var textArray = [];
+          var text = '';
+          if (Array.isArray(texte)) {
+            texte.forEach(function (aText) {
+              textArray.push(aText.y+'#'+aText.text.trim());
+            });
+            text = textArray.join('|');
+          }
+          $('#memetexte').val(text);
           var imageDataUrl = $("#meme").memeGenerator("save")
+          $('#imagefield').val(imageDataUrl);
           // $("#meme").memeGenerator("download", "image.png");
           // console.log($('form.personal').serialize());
           $.ajax({

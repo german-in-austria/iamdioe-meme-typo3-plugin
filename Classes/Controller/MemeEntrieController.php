@@ -148,11 +148,11 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         if ($newMemeEntrie->getDialekt() != 1) {
             $newMemeEntrie->setDialekt(0);
         }
-        // ToDo: Bild hochladen und setzen ...
-        $this->memeEntrieRepository->add($newMemeEntrie);
+        $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\ResourceFactory');
+        // $this->memeEntrieRepository->add($newMemeEntrie);
         $this->view->assign('newMemeEntrie', $newMemeEntrie);
-        $this->view->assign('test', print_r($memeimagesItemUids, true));
-        $this->view->assign('test2', print_r(null, true));
+        $this->view->assign('test', print_r($newMemeEntrie->image, true));
+        $this->view->assign('test2', print_r($this->request->getArgument('image'), true));
     }
 
     /**
