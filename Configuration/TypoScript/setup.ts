@@ -52,7 +52,7 @@ plugin.tx_hcbiamdioememe_fememelist {
 config.tx_extbase {
     persistence {
         classes {
-            Vendor\Ext\Domain\Model\FileReference {
+            HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\FileReference {
                 mapping {
                         tableName = sys_file_reference
                     columns {

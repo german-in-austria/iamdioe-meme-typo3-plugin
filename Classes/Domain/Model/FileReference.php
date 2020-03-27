@@ -1,5 +1,4 @@
 <?php
-
 namespace HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model;
 
 /***************************************************************
@@ -41,10 +40,10 @@ class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference {
     /**
      * setOriginalResource
      *
-     * @param \TYPO3\CMS\Core\Resource\FileReference $originalResource
+     * @param \TYPO3\CMS\Core\Resource\ResourceInterface $originalResource
      * @return void
      */
-    public function setOriginalResource(\TYPO3\CMS\Core\Resource\FileReference $originalResource) {
+    public function setOriginalResource(\TYPO3\CMS\Core\Resource\ResourceInterface $originalResource) {
         $this->originalResource = $originalResource;
         $this->originalFileIdentifier = (int)$originalResource->getOriginalFile()->getUid();
     }
