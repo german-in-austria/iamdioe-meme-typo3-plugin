@@ -49,6 +49,25 @@ plugin.tx_hcbiamdioememe_fememelist {
     }
 }
 
+config.tx_extbase {
+    persistence {
+        classes {
+            Vendor\Ext\Domain\Model\FileReference {
+                mapping {
+                        tableName = sys_file_reference
+                    columns {
+                        uid_local.mapOnProperty = originalFileIdentifier
+                    }
+                }
+            }
+        }
+        objects {
+            TYPO3\CMS\Extbase\Domain\Model\FileReference.className = Vendor\Ext\Domain\Model\FileReference
+        }
+        updateReferenceIndex = 1
+    }
+}
+
 ajaxsfememegenerator_page = PAGE
 ajaxsfememegenerator_page {
     typeNum = 78376261

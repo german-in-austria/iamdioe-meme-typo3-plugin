@@ -134,6 +134,15 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         $this->view->assign('memeimagesItems', $memeimagesItems);
     }
 
+
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
+     * @inject
+     */
+    protected $persistenceManager;
+
+
     /**
      * action generatorAjax
      *
@@ -148,11 +157,31 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         if ($newMemeEntrie->getDialekt() != 1) {
             $newMemeEntrie->setDialekt(0);
         }
-        $resourceFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\ResourceFactory');
-        // $this->memeEntrieRepository->add($newMemeEntrie);
+        $resourceFactory = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance();
+        $storage = $resourceFactory->getDefaultStorage();
+        if (!$storage->hasFolder('memebilder')) {
+            $storage->createFolder('memebilder');
+        }
+        $aImage = base64_decode(explode(',', $this->request->getArgument('image'))[1]);
+        $aImageName = $newMemeEntrie->getPid().'_'.date_format(date_create(), 'YmdHis').'_'.substr(md5(time().uniqid()), -5).'.jpg';
+        $uploadFolder = $storage->getFolder('memebilder');
+        $tempFileName = tempnam(sys_get_temp_dir(), 'memeupload');
+        $handle = fopen($tempFileName, "w");
+        fwrite($handle, $aImage);
+        fclose($handle);
+        $file = $storage->addFile($tempFileName, $uploadFolder, $aImageName);
+        if ($tempFileName && file_exists($tempFileName)) {
+            unlink($tempFileName);
+        }
+        
+        $fileReference = $this->objectManager->get('HcbIamDioeMeme\\HcbIamdioeMeme\\Domain\\Model\\FileReference');
+        $fileReference->setFile($file);
+        $newMemeEntrie->setBild($fileReference);
+
+        $this->memeEntrieRepository->add($newMemeEntrie);
+        $this->persistenceManager->persistAll();
+
         $this->view->assign('newMemeEntrie', $newMemeEntrie);
-        $this->view->assign('test', print_r($newMemeEntrie->image, true));
-        $this->view->assign('test2', print_r($this->request->getArgument('image'), true));
     }
 
     /**

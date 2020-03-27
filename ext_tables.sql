@@ -2,7 +2,6 @@
 # Table structure for table 'tx_hcbiamdioememe_domain_model_memeentrie'
 #
 CREATE TABLE tx_hcbiamdioememe_domain_model_memeentrie (
-
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
@@ -39,5 +38,4 @@ CREATE TABLE tx_hcbiamdioememe_domain_model_memeentrie (
 	PRIMARY KEY (uid),
 	KEY parent (pid),
 	KEY language (l10n_parent,sys_language_uid)
-
 );

@@ -142,7 +142,16 @@ class MemeEntrie extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected function initStorageObjects()
     {
+    }
 
+    /**
+     * Returns the pid
+     *
+     * @return int pid
+     */
+    public function getPid()
+    {
+        return $this->pid;
     }
 
     /**
@@ -190,7 +199,7 @@ class MemeEntrie extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the bild
      *
-     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference bild
+     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $bild
      */
     public function getBild()
     {
