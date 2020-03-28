@@ -67,6 +67,8 @@ $(document).ready(function(){
             data: $('form.personal').serialize(),
             success: function(response) {
               console.log(response);
+              $('.meme-generator').hide();
+              $('.danksagung').show();
             },
             error: function (jqXHR, textStatus, errorThrow) {
               alert('Senden hat leider nicht geklappt!');

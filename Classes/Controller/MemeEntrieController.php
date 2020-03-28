@@ -135,6 +135,7 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         $this->view->assign('teilnahmeText', $this->settings['teilnahme']);
         $this->view->assign('teilnahmeTextLen', strlen($this->settings['teilnahme']));
         $this->view->assign('datenschutzText', $this->settings['datenschutz']);
+        $this->view->assign('danksagung', $this->settings['danksagung']);
     }
 
 
