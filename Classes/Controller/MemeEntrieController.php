@@ -132,6 +132,9 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         }
         $this->view->assign('pid', $this->configurationManager->getContentObject()->data['pages']);
         $this->view->assign('memeimagesItems', $memeimagesItems);
+        $this->view->assign('teilnahmeText', $this->settings['teilnahme']);
+        $this->view->assign('teilnahmeTextLen', strlen($this->settings['teilnahme']));
+        $this->view->assign('datenschutzText', $this->settings['datenschutz']);
     }
 
 
@@ -163,7 +166,7 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
             $storage->createFolder('memebilder');
         }
         $aImage = base64_decode(explode(',', $this->request->getArgument('image'))[1]);
-        $aImageName = $newMemeEntrie->getPid().'_'.date_format(date_create(), 'YmdHis').'_'.substr(md5(time().uniqid()), -5).'.jpg';
+        $aImageName = $newMemeEntrie->getPid().'_'.date_format(date_create(), 'YmdHis').'_'.substr(md5(time().uniqid()), -5).'.png';
         $uploadFolder = $storage->getFolder('memebilder');
         $tempFileName = tempnam(sys_get_temp_dir(), 'memeupload');
         $handle = fopen($tempFileName, "w");

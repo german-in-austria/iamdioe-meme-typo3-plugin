@@ -63,6 +63,10 @@
 								<label for="wohnort">Wohnort</label>
 								<f:form.textfield property="wohnort" name="wohnort" class="form-control" id="wohnort" placeholder="Wohnort"/>
 							</div>
+							<div class="form-group form-check">
+								<input type="checkbox" value="1" name="datenschutz" class="form-check-input" id="datenschutz" />
+								<label class="form-check-label" for="datenschutz" style="vertical-align:top;font-weight:normal;max-width:calc(100% - 20px);">{datenschutzText -> f:format.html()}</label>
+							</div>
 						</div>
 						<div class="col-12 col-md-6">
 							<div class="form-group mb-3">
@@ -95,6 +99,12 @@
 								<label for="memetag">Hashtag?</label>
 								<f:form.textfield property="memetag" name="memetag" class="form-control" id="memetag"/>
 							</div>
+							<f:if condition="teilnahmeTextLen > 0">
+								<div class="form-group form-check">
+									<f:form.checkbox property="teilnahme" value="1" name="teilnahme" class="form-check-input" id="teilnahme" />
+									<label class="form-check-label" for="teilnahme" style="vertical-align:top;font-weight:normal;max-width:calc(100% - 20px);">{teilnahmeText -> f:format.html()}</label>
+								</div>
+							</f:if>
 						</div>
 					</div>
 					<div class="row">
