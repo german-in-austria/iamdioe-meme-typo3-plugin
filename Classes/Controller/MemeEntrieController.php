@@ -138,14 +138,11 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         $this->view->assign('danksagung', $this->settings['danksagung']);
     }
 
-
-
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
      * @inject
      */
     protected $persistenceManager;
-
 
     /**
      * action generatorAjax
