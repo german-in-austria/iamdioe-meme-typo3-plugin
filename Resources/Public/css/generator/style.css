@@ -66,3 +66,20 @@ h1.headline{
 .template{
   display: none
 }
+
+.form-group.has-error .form-check-label {
+  color: #a94442;
+}
+.form-group.has-error .form-check-label a {
+  color: #4e0f0e;
+}
+
+.invalid-feedback {
+  display: none;
+  padding: 7px 12px;
+  font-weight: bold;
+}
+
+.form-group.has-error .invalid-feedback {
+  display: block;
+}

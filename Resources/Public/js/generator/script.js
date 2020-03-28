@@ -56,8 +56,17 @@ $(document).ready(function(){
           alert('Es muss ein Text im Bild angegeben werden!');
         } else if (form.checkValidity() === false) {
           alert('Bitte alle benötigten Felder ausfüllen!');
+          form.classList.add('error');
+          $('form.personal [required]').each(function () {
+            if (this.checkValidity()) {
+              $(this).parent().removeClass('has-error');
+            } else {
+              $(this).parent().addClass('has-error');
+            }
+          });
         } else {
           console.log('valid')
+          form.classList.add('valid');
           var imageDataUrl = $("#meme").memeGenerator("save")
           $('#imagefield').val(imageDataUrl);
           $("#meme").memeGenerator("download", "meme.png");
