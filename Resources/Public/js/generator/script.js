@@ -39,38 +39,42 @@ $(document).ready(function(){
         e.preventDefault()
         e.stopPropagation()
         var form = document.querySelector('form.personal')
-
-        // if (form.checkValidity() === false) {
-        //   console.log('invalid')
-        // } else {
-          // console.log('valid')
-          var texte = JSON.parse($("#meme").memeGenerator("serialize"));
-          var textArray = [];
-          var text = '';
-          if (Array.isArray(texte)) {
-            texte.forEach(function (aText) {
-              textArray.push(aText.y+'#'+aText.text.trim());
-            });
-            text = textArray.join('|');
-          }
-          $('#memetexte').val(text);
+        var texte = JSON.parse($("#meme").memeGenerator("serialize"));
+        var textArray = [];
+        var text = '';
+        if (Array.isArray(texte)) {
+          texte.forEach(function (aText) {
+            if (aText.text.trim().length > 0) {
+              textArray.push(aText.y + '#' + aText.text.trim());
+            }
+          });
+          text = textArray.join('|');
+        }
+        $('#memetexte').val(text);
+        console.log(text, textArray);
+        if (textArray.length < 1) {
+          alert('Es muss ein Text im Bild angegeben werden!');
+        } else if (form.checkValidity() === false) {
+          alert('Bitte alle benötigten Felder ausfüllen!');
+        } else {
+          console.log('valid')
           var imageDataUrl = $("#meme").memeGenerator("save")
           $('#imagefield').val(imageDataUrl);
-          // $("#meme").memeGenerator("download", "image.png");
-          // console.log($('form.personal').serialize());
+          $("#meme").memeGenerator("download", "meme.png");
           $.ajax({
             url: $('form.memeform').attr('action'),
             type: "POST",
             data: $('form.personal').serialize(),
-            success: function(response){
+            success: function(response) {
               console.log(response);
             },
             error: function (jqXHR, textStatus, errorThrow) {
+              alert('Senden hat leider nicht geklappt!');
               console.log('Ajax request - ' + textStatus + ': ' + errorThrow);
             }
           })
-        // }
-        // form.classList.add('was-validated')
+        }
+        form.classList.add('was-validated')
       })
     }
   })
