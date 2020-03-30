@@ -32,6 +32,7 @@ class MemeEntrieRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     public function getAllPublic() {
         $query = $this->createQuery();
         $query->matching($query->equals('freigegeben', 1));
+        $query->setOrderings(['datum' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING]);
         return $query->execute();
     }
 
