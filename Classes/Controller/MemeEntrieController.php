@@ -146,6 +146,18 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
     protected $persistenceManager;
 
     /**
+     * action memelistAjax
+     *
+     * @param \HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie $newMemeEntrie
+     * @return void
+     */
+    public function memelistAjaxAction(\HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie $upvoteMemeEntrie)
+    {
+        $this->view->assign('newMemeEntrie', $upvoteMemeEntrie);
+        $this->view->assign('upvoted', false);
+    }
+
+    /**
      * action generatorAjax
      *
      * @param \HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie $newMemeEntrie
