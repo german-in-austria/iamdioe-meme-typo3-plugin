@@ -36,14 +36,15 @@ class MemeEntrieRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         return $query->execute();
     }
 
-    public function getRandomPublic() {
+    public function getRandomPublic($pid) {
         $queryBuilder =  \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('tx_hcbiamdioememe_domain_model_memeentrie');
         $rndQuery = $queryBuilder
             ->select('uid')
             ->addSelectLiteral('RAND() AS rnd')
             ->from('tx_hcbiamdioememe_domain_model_memeentrie')
             ->where(
-                $queryBuilder->expr()->eq('freigegeben', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT))
+                $queryBuilder->expr()->eq('freigegeben', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT)),
+                $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pid, \PDO::PARAM_INT))
             )
             ->orderBy('rnd')
             ->setMaxResults(3)
