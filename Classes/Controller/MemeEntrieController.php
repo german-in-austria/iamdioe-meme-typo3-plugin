@@ -193,8 +193,14 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
      */
     public function memelistAction()
     {
-        $memeEntries = $this->memeEntrieRepository->getAllPublic();
-        $this->view->assign('memeEntries', $memeEntries);
+        if ($this->settings['preview']) {
+            $memeEntriesRandom = $this->memeEntrieRepository->getRandomPublic();
+            $this->view->assign('memeEntriesRandom', $memeEntriesRandom);
+            $this->view->assign('preview', true);
+        } else {
+            $memeEntries = $this->memeEntrieRepository->getAllPublic();
+            $this->view->assign('memeEntries', $memeEntries);
+        }
     }
 
 }

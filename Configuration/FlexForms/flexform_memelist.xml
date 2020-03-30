@@ -19,6 +19,14 @@
               </config>
             </TCEforms>
           </settings.hashtags>
+          <settings.preview>
+            <TCEforms>
+              <label>Preview Modus (3 zufällige Bilder)</label>
+              <config>
+                <type>check</type>
+              </config>
+            </TCEforms>
+          </settings.preview>
         </el>
       </ROOT>
     </sDEF>
