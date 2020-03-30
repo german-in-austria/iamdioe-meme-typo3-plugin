@@ -17,7 +17,7 @@
 				<div class="row memelist">
 					<f:for each="{memeEntries}" as="memeEntry">
 						<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-							<a href="#" class="meme-entry" data-memehashtag="{f:if(condition: memeEntry.memetag, then: '#{memeEntry.memetag}')}" data-memehashtags="{f:if(condition: settings.hashtags, then: '{settings.hashtags}')}" data-memeuid="{memeEntry.uid}" data-toggle="modal" data-target="#meme-modal-{memeEntry.uid}">
+							<a href="#" class="meme-entry" data-toggle="modal" data-target="#meme-modal-{memeEntry.uid}">
 								<f:image src="{memeEntry.bild.uid}" width="270" class="img-responsive" treatIdAsReference="TRUE" />
 								<f:if condition="{memeEntry.memetag}"><b>#{memeEntry.memetag}</b><br></f:if>
 								{memeEntry.votes} upvotes
@@ -40,9 +40,11 @@
 													<br>
 													{memeEntry.votes} upvotes<br>
 													<br>
-													<button type="button" class="btn btn-success">upvote <span class="glyphicon glyphicon-thumbs-up" style="margin-left:6px;" aria-hidden="true"></span></button><br>
-													<br>
-													<button type="button" class="btn btn-primary">share <span class="glyphicon glyphicon-share" style="margin-left:6px;" aria-hidden="true"></span></button>
+													<div data-memehashtag="{f:if(condition: memeEntry.memetag, then: '#{memeEntry.memetag}')}" data-memehashtags="{f:if(condition: settings.hashtags, then: '{settings.hashtags}')}" data-memeuid="{memeEntry.uid}" class="meme-buttons">
+														<button type="button" class="btn btn-success meme-upvote">upvote <span class="glyphicon glyphicon-thumbs-up" style="margin-left:6px;" aria-hidden="true"></span></button><br>
+														<!-- <br>
+														<button type="button" class="btn btn-primary">share <span class="glyphicon glyphicon-share" style="margin-left:6px;" aria-hidden="true"></span></button> -->
+													</div>
 												</div>
 											</div>
 										</div>
@@ -55,8 +57,13 @@
 						</div>
 					</f:for>
 				</div>
+				<f:form action="memelistAjax" enctype="multipart/form-data" pageType="78376262" name="upvoteMemeEntrie" class="memelistform">
+					<f:form.hidden name="action" value="memelistAjax" />
+					<f:form.hidden name="upvote" value="0" class="meme-form-upvote" />
+					<f:form.hidden name="uid" value="0" name="uid" class="meme-form-uid" />
+				</f:form>
 			</f:else>
 		</f:if>
-		<v:asset.script path="EXT:hcb_iamdioe_meme/Resources/Public/js/list/script.js" standalone="1" />
+		<f:if condition="{preview}"><f:else><v:asset.script path="EXT:hcb_iamdioe_meme/Resources/Public/js/list/script.js" standalone="1" /></f:else></f:if>
 	</f:section>
 </html>

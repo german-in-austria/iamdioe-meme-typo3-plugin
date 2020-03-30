@@ -64,13 +64,20 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
     /**
      * action memelistAjax
      *
-     * @param \HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie $newMemeEntrie
+     * @param HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie
      * @return void
      */
-    public function memelistAjaxAction(\HcbIamDioeMeme\HcbIamdioeMeme\Domain\Model\MemeEntrie $upvoteMemeEntrie)
+    public function memelistAjaxAction()
     {
-        $this->view->assign('newMemeEntrie', $upvoteMemeEntrie);
-        $this->view->assign('upvoted', false);
+        $upvoteMemeEntrie = $this->memeEntrieRepository->findByUid($this->request->getArgument('uid'));
+        if ($this->request->getArgument('upvote')) {
+            $upvoteMemeEntrie->addVote();
+            $this->memeEntrieRepository->update($upvoteMemeEntrie);
+        }
+        $this->view->assign('upvoteMemeEntrie', $upvoteMemeEntrie);
+        $this->view->assign('upvoted', $this->request->getArgument('upvote'));
+        $this->view->assign('test', print_r($this->request->getArguments(), true));
+        $this->view->assign('test2', $this->request->getArgument('uid'));
     }
 
     /**

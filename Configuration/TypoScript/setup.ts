@@ -81,3 +81,17 @@ ajaxsfememegenerator_page {
     }
     10 < tt_content.list.20.hcbiamdioememe_fememegenerator
 }
+
+ajaxsfememelist_page = PAGE
+ajaxsfememelist_page {
+    typeNum = 78376262
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders = Content-type:application/html
+        xhtml_cleaning = 0
+        debug = 0
+        no_cache = 1
+        admPanel = 0
+    }
+    10 < tt_content.list.20.hcbiamdioememe_fememelist
+}

@@ -70,6 +70,7 @@ $(document).ready(function(){
           var imageDataUrl = $("#meme").memeGenerator("save")
           $('#imagefield').val(imageDataUrl);
           $("#meme").memeGenerator("download", "meme.png");
+          $("#save").attr('disabled', true);
           $.ajax({
             url: $('form.memeform').attr('action'),
             type: "POST",
@@ -78,10 +79,12 @@ $(document).ready(function(){
               console.log(response);
               $('.meme-generator').hide();
               $('.danksagung').show();
+              $("#save").attr('disabled', false);
             },
             error: function (jqXHR, textStatus, errorThrow) {
               alert('Senden hat leider nicht geklappt!');
               console.log('Ajax request - ' + textStatus + ': ' + errorThrow);
+              $("#save").attr('disabled', false);
             }
           })
         }

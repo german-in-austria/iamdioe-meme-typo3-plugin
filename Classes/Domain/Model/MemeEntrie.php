@@ -197,6 +197,17 @@ class MemeEntrie extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Votes + 1
+     *
+     * @param int $votes
+     * @return void
+     */
+    public function addVote()
+    {
+        $this->votes = $this->votes + 1;
+    }
+
+    /**
      * Returns the bild
      *
      * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $bild
