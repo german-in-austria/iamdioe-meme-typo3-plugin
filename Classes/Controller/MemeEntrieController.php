@@ -76,8 +76,6 @@ class MemeEntrieController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
         }
         $this->view->assign('upvoteMemeEntrie', $upvoteMemeEntrie);
         $this->view->assign('upvoted', $this->request->getArgument('upvote'));
-        $this->view->assign('test', print_r($this->request->getArguments(), true));
-        $this->view->assign('test2', $this->request->getArgument('uid'));
     }
 
     /**

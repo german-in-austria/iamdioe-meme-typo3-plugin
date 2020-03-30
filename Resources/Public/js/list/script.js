@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  updateVoteStates();
   $('button.meme-upvote').on('click', (e) => {
     var aThis = $(e.target);
     e.preventDefault();
@@ -16,7 +17,9 @@ $(document).ready(function(){
       data: aData,
       success: function(response) {
         console.log(response);
-        $(aThis).attr('disabled', false);
+        $('.meme-votes-uid-' + aThis.parent().data('memeuid')).text(parseInt($('.meme-votes-uid-' + aThis.parent().data('memeuid')).first().text()) + 1);
+        addVoteState(parseInt(aThis.parent().data('memeuid')));
+        updateVoteStates();
       },
       error: function (jqXHR, textStatus, errorThrow) {
         alert('Senden hat leider nicht geklappt!');
@@ -26,3 +29,24 @@ $(document).ready(function(){
     })
   })
 })
+
+function updateVoteStates() {
+  var votes = JSON.parse(localStorage.getItem('iamdioememe'));
+  if (votes) {
+    $('button.meme-upvote').each(function () {
+      if (votes.indexOf(parseInt($(this).parent().data('memeuid'))) > -1) {
+        $(this).attr('disabled', true);
+        $(this).find('span.glyphicon').removeClass('glyphicon-thumbs-up').addClass('glyphicon-ok');
+      }
+    });
+  }
+}
+
+function addVoteState(uid) {
+  var votes = JSON.parse(localStorage.getItem('iamdioememe'));
+  if(!votes) {
+    votes = [];
+  }
+  votes.push(uid);
+  localStorage.setItem('iamdioememe', JSON.stringify(votes));
+}
