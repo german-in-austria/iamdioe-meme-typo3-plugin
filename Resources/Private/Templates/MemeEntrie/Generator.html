@@ -5,13 +5,21 @@
 		<v:asset.style path="EXT:hcb_iamdioe_meme/Resources/Public/css/jquery-ui.css" standalone="1" />
 		<v:asset.style path="EXT:hcb_iamdioe_meme/Resources/Public/css/spectrum.min.css" standalone="1" />
 		<v:asset.style path="EXT:hcb_iamdioe_meme/Resources/Public/css/generator/jquery-memegenerator.min.css" standalone="1" />
+		<f:if condition="{headline}"><v:asset.style path="EXT:hcb_iamdioe_meme/Resources/Public/css/generator/font.css" standalone="1" /></f:if>
 		<v:asset.style path="EXT:hcb_iamdioe_meme/Resources/Public/css/generator/style.css" standalone="1" />
 
 		<div class="meme-generator">
+			<f:if condition="{headline}">
+				<f:else>
+					<h4 class="center" style="margin-top:20px;">1. Wähle ein Bild</h4><br>
+				</f:else>
+			</f:if>
 			<div class="image-container">
-				<br>
-				<h1 class="headline">DiÖ-Meme-<br>Generator</h1><br>
-				<h5 class="center">1. Wähle ein Bild</h5><br>
+				<f:if condition="{headline}">
+					<br>
+					<h1 class="headline">DiÖ-Meme-<br>Generator</h1><br>
+					<h4 class="center" style="margin-top:20px;">1. Wähle ein Bild</h4><br>
+				</f:if>
 				<div class="images">
 					<f:for each="{memeimagesItems}" as="memeimageItem">
 						<div style="background-image: url({f:uri.image(src: '{memeimageItem.uid}', width: 700, treatIdAsReference: 1)})" class="img-inner">
@@ -22,13 +30,13 @@
 				</div>
 			</div>
 			<div style="margin-top: 20px;">
-				<h5 class="center">2. Text positionieren</h5><br>
+				<h4 class="center" style="margin-top:40px;">2. Text positionieren</h4><br>
 			</div>
 			<div style="margin-top: 20px;">
 				<img width="300" src="{f:uri.image(src: '{memeimagesItems.0.uid}', width: 700, treatIdAsReference: 1)}" id="meme">
 			</div>
 			<div style="margin-top: 20px;">
-				<h5 class="center">3. Senden und Download</h5><br>
+				<h4 class="center" style="margin-top:30px;">3. Senden und Download</h4><br>
 				<f:form action="generatorAjax" enctype="multipart/form-data" pageType="78376261" name="newMemeEntrie" object="{newMemeEntrie}" class="memeform personal needs-validation">
 					<f:form.hidden name="action" value="generatorAjax"/>
 					<f:form.hidden property="pid" value="{pid}" name="pid"/>

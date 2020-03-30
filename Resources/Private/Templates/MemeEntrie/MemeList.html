@@ -5,7 +5,6 @@
 		<v:asset.style path="EXT:hcb_iamdioe_meme/Resources/Public/css/list/style.css" standalone="1" />
 		<f:if condition="{preview}">
 			<f:then>
-				<f:debug title="...">{memeEntriesRandom}</f:debug>
 				<div class="row memepreview">
 					<f:for each="{memeEntriesRandom}" as="memeEntry">
 						<div class="col-12 col-md-4">
@@ -15,7 +14,6 @@
 				</div>
 			</f:then>
 			<f:else>
-				<f:debug title="...">{memeEntries}</f:debug>
 				<div class="row memelist">
 					<f:for each="{memeEntries}" as="memeEntry">
 						<div class="col-12 col-sm-6 col-md-4 col-lg-3">
