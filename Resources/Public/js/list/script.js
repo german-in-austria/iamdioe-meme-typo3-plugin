@@ -1,7 +1,8 @@
 $(document).ready(function(){
+  var nextMemeModal = null;
   updateVoteStates();
   $('button.meme-upvote').on('click', (e) => {
-    var aThis = $(e.target);
+    var aThis = $(e.currentTarget);
     e.preventDefault();
     e.stopPropagation();
     $('form.memelistform .meme-form-upvote').val(1);
@@ -9,14 +10,14 @@ $(document).ready(function(){
     var aData = $('form.memelistform').serialize();
     $('form.memelistform .meme-form-upvote').val(0);
     $('form.memelistform .meme-form-uid').val(0);
-    console.log(aThis, aData);
+    // console.log(aThis, aData);
     $(aThis).attr('disabled', true);
     $.ajax({
       url: $('form.memelistform').attr('action'),
       type: "POST",
       data: aData,
       success: function(response) {
-        console.log(response);
+        // console.log(response);
         $('.meme-votes-uid-' + aThis.parent().data('memeuid')).text(parseInt($('.meme-votes-uid-' + aThis.parent().data('memeuid')).first().text()) + 1);
         addVoteState(parseInt(aThis.parent().data('memeuid')));
         updateVoteStates();
@@ -27,6 +28,20 @@ $(document).ready(function(){
         $(aThis).attr('disabled', false);
       }
     })
+  })
+  $('button.meme-prv-btn, button.meme-nxt-btn').on('click', (e) => {
+    var aThis = $(e.currentTarget);
+    var aMemeModal = aThis.parents('.meme-modal');
+    nextMemeModal =  (aThis.hasClass('meme-nxt-btn') ? aMemeModal.parent().next() : aMemeModal.parent().prev()).find('.meme-modal');
+    aMemeModal.modal('hide');
+  })
+  $('.meme-modal').on('hidden.bs.modal', (e) => {
+    if (nextMemeModal) {
+      setTimeout(function(){
+        nextMemeModal.modal('show');
+        nextMemeModal = null;
+      },500);
+    };
   })
 })
 

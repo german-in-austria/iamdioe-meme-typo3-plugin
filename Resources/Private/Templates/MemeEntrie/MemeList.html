@@ -15,14 +15,14 @@
 			</f:then>
 			<f:else>
 				<div class="row memelist">
-					<f:for each="{memeEntries}" as="memeEntry">
+					<f:for each="{memeEntries}" as="memeEntry" iteration="meIteration">
 						<div class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<a href="#" class="meme-entry" data-toggle="modal" data-target="#meme-modal-{memeEntry.uid}">
 								<f:image src="{memeEntry.bild.uid}" width="270" class="img-responsive" treatIdAsReference="TRUE" />
 								<f:if condition="{memeEntry.memetag}"><b>#{memeEntry.memetag}</b><br></f:if>
 								<span class="meme-votes-uid-{memeEntry.uid}">{memeEntry.votes}</span> upvotes
 							</a>
-							<div class="modal fade" id="meme-modal-{memeEntry.uid}" tabindex="-1" role="dialog" aria-labelledby="meme-modal-{memeEntry.uid}-label">
+							<div class="modal fade meme-modal" id="meme-modal-{memeEntry.uid}" tabindex="-1" role="dialog" aria-labelledby="meme-modal-{memeEntry.uid}-label">
 								<div class="modal-dialog modal-lg" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -53,7 +53,9 @@
 											</div>
 										</div>
 										<div class="modal-footer">
+											<f:if condition="{meIteration.isFirst}"><f:else><button type="button" class="btn btn-default meme-prv-btn"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button></f:else></f:if>
 											<button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+											<f:if condition="{meIteration.isLast}"><f:else><button type="button" class="btn btn-default meme-nxt-btn"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></f:else></f:if>
 										</div>
 									</div>
 								</div>
