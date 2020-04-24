@@ -40,7 +40,7 @@ $(document).ready(function(){
       setTimeout(function(){
         nextMemeModal.modal('show');
         nextMemeModal = null;
-      },500);
+      }, 100);
     };
   })
 })
